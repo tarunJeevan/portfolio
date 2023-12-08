@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap"
+import { Container, Nav, Navbar } from "react-bootstrap"
+import linkedin from '../assets/linkedin.svg'
+import discord from '../assets/discord.svg'
+import { CpuFill } from "react-bootstrap-icons"
 import { BrowserRouter as Router } from "react-router-dom"
 import { HashLink } from "react-router-hash-link"
 
-export default function Navbar() {
+export default function NavBar() {
     const [activeLink, setActiveLink] = useState('home')
     const [scrolled, setScrolled] = useState(false)
 
@@ -15,9 +18,9 @@ export default function Navbar() {
                 setScrolled(false)
         }
 
-        window.addEventListener('scroll', onscroll)
+        window.addEventListener('scroll', onScroll)
 
-        return () => window.removeEventListener('scroll', onscroll)
+        return () => window.removeEventListener('scroll', onScroll)
     }, [])
 
     const goToContactMe = () => {
@@ -29,10 +32,10 @@ export default function Navbar() {
     }
 
     return (
-        <Navbar expand="lg" className={scrolled ? 'scrolled bg-body-tertiary' : 'bg-body-tertiary'} sticky="top">
+        <Navbar expand="lg" className={scrolled ? 'scrolled' : ''}>
             <Container>
                 <Navbar.Brand href="#home">
-                    <img src={""} alt="Logo" />
+                    <CpuFill color="white" size={48} />
                 </Navbar.Brand>
 
                 <Navbar.Toggle aria-controls="basic-navbar-nav">
@@ -41,13 +44,13 @@ export default function Navbar() {
 
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#home" className={activeLink === "home" ? 'active navbar-link' : 'navbar-link'} onClick={updateActiveLink('home')}>
+                        <Nav.Link href="#home" className={activeLink === "home" ? 'active navbar-link' : 'navbar-link'} onClick={e => updateActiveLink('home')}>
                             Home
                         </Nav.Link>
-                        <Nav.Link href="#skills" className={activeLink === "skills" ? 'active navbar-link' : 'navbar-link'} onClick={updateActiveLink('skills')}>
-                            Skilsl
+                        <Nav.Link href="#skills" className={activeLink === "skills" ? 'active navbar-link' : 'navbar-link'} onClick={e => updateActiveLink('skills')}>
+                            Skills
                         </Nav.Link>
-                        <Nav.Link href="#projects" className={activeLink === "projects" ? 'active navbar-link' : 'navbar-link'} onClick={updateActiveLink('projects')}>
+                        <Nav.Link href="#projects" className={activeLink === "projects" ? 'active navbar-link' : 'navbar-link'} onClick={e => updateActiveLink('projects')}>
                             Projects
                         </Nav.Link>
 
@@ -66,13 +69,10 @@ export default function Navbar() {
                     <span className="navbar-text">
                         <div className="social-icons">
                             <a href="#">
-                                <img src={""} alt="LinkedIn" />
+                                <img src={linkedin} alt="LinkedIn" />
                             </a>
                             <a href="#">
-                                <img src={""} alt="" />
-                            </a>
-                            <a href="#">
-                                <img src={""} alt="" />
+                                <img src={discord} alt="Discord" />
                             </a>
                         </div>
                         <button className="contact-me-btn" onClick={goToContactMe}>Contact Me</button>
