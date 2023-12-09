@@ -14,11 +14,11 @@ export default function HeroSection() {
                             sequence={[
                                 'Tarun',
                                 1000,
-                                'Web Developer',
+                                'a Web Developer',
                                 1000,
-                                'Game Designer',
+                                'a Game Designer',
                                 1000,
-                                'Game Developer',
+                                'a Game Developer',
                                 1000
                             ]}
                             wrapper="span"
