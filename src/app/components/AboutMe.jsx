@@ -1,6 +1,12 @@
 'use client'
 import Image from "next/image"
 import { useState, useTransition } from "react"
+import { motion } from "framer-motion"
+
+const variants = {
+    default: { width: 0 },
+    active: { width: 'calc(100% - 0.75rem)' }
+}
 
 // FIXME: Edit as needed
 const TAB_DATA = [
@@ -104,7 +110,7 @@ export default function AboutMe() {
 
 function TabButton({ isActive, selectTab, children }) {
     const btnClasses = isActive
-        ? 'text-white border-b border-secondary-500'
+        ? 'text-white'
         : 'text-[#ADB7BE]'
 
     return (
@@ -112,6 +118,11 @@ function TabButton({ isActive, selectTab, children }) {
             <p className={`mr-3 font-semibold hover:text-white ${btnClasses}`}>
                 {children}
             </p>
+            <motion.div
+                variants={variants}
+                animate={isActive ? 'active' : 'default'}
+                className="h-1 bg-secondary-500 mt-2 mr-3"
+            ></motion.div>
         </button>
     )
 }

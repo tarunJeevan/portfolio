@@ -1,7 +1,8 @@
 'use client'
 import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline"
 import Link from "next/link"
-import { useState } from "react"
+import { useRef, useState } from "react"
+import { motion, useInView } from "framer-motion"
 
 // FIXME: Add proper git and preview URLs. Fix project descriptions
 const PROJECTS_DATA = [
@@ -63,6 +64,13 @@ const PROJECTS_DATA = [
 
 export default function ProjectsSection() {
     const [filter, setFilter] = useState('All')
+    const viewRef = useRef(null)
+    const isInView = useInView(viewRef, { once: true })
+
+    const cardVariants = {
+        initial: { y: 50, opacity: 0 },
+        animate: { y: 0, opacity: 1 }
+    }
 
     const handleFilterChange = (newFilter) => {
         setFilter(newFilter)
@@ -74,7 +82,7 @@ export default function ProjectsSection() {
     })
 
     return (
-        <>
+        <section>
             <h2>My Projects</h2>
             <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
                 <ProjectTag name={'All'} onClick={handleFilterChange} isSelected={filter === 'All'} />
@@ -82,21 +90,29 @@ export default function ProjectsSection() {
                 <ProjectTag name={'Games'} onClick={handleFilterChange} isSelected={filter === 'Games'} />
                 <ProjectTag name={'Desktop'} onClick={handleFilterChange} isSelected={filter === 'Desktop'} />
             </div>
-            <section>
-                {filteredProjects.map((project) => {
+            <ul ref={viewRef} className="grid md:grid-cols-3 gap-8 md:gap-12">
+                {filteredProjects.map((project, index) => {
                     return (
-                        <ProjectCard
-                            key={project.id}
-                            title={project.title}
-                            description={project.description}
-                            imgUrl={project.image}
-                            gitUrl={project.gitUrl}
-                            previewUrl={project.previewUrl}
-                        />
+                        <motion.li
+                            key={index}
+                            variants={cardVariants}
+                            initial='initial'
+                            animate={isInView ? 'animate' : 'initial'}
+                            transition={{ duration: 0.3, delay: index * 0.3 }}
+                        >
+                            <ProjectCard
+                                key={project.id}
+                                title={project.title}
+                                description={project.description}
+                                imgUrl={project.image}
+                                gitUrl={project.gitUrl}
+                                previewUrl={project.previewUrl}
+                            />
+                        </motion.li>
                     )
                 })}
-            </section>
-        </>
+            </ul>
+        </section>
     )
 }
 
