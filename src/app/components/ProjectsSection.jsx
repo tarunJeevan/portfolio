@@ -77,10 +77,10 @@ export default function ProjectsSection() {
         <>
             <h2>My Projects</h2>
             <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-                <ProjectTag name={All} onClick={handleFilterChange} isSelected={filter === 'All'} />
-                <ProjectTag name={Web} onClick={handleFilterChange} isSelected={filter === 'Web'} />
-                <ProjectTag name={Games} onClick={handleFilterChange} isSelected={filter === 'Games'} />
-                <ProjectTag name={Desktop} onClick={handleFilterChange} isSelected={filter === 'Desktop'} />
+                <ProjectTag name={'All'} onClick={handleFilterChange} isSelected={filter === 'All'} />
+                <ProjectTag name={'Web'} onClick={handleFilterChange} isSelected={filter === 'Web'} />
+                <ProjectTag name={'Games'} onClick={handleFilterChange} isSelected={filter === 'Games'} />
+                <ProjectTag name={'Desktop'} onClick={handleFilterChange} isSelected={filter === 'Desktop'} />
             </div>
             <section>
                 {filteredProjects.map((project) => {
@@ -127,7 +127,7 @@ function ProjectCard({ imgUrl, title, description, gitUrl, previewUrl }) {
 
 function ProjectTag({ name, onClick, isSelected }) {
     const btnStyles = isSelected
-        ? 'text-white border-purple-500'
+        ? 'text-white border-secondary-500'
         : 'text-[#ADB7BE] border-slate-600 hover:border-white'
 
     return (

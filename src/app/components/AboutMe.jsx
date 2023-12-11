@@ -2,6 +2,7 @@
 import Image from "next/image"
 import { useState, useTransition } from "react"
 
+// FIXME: Edit as needed
 const TAB_DATA = [
     {
         title: 'Skills',
@@ -103,7 +104,7 @@ export default function AboutMe() {
 
 function TabButton({ isActive, selectTab, children }) {
     const btnClasses = isActive
-        ? 'text-white border-b border-purple-500'
+        ? 'text-white border-b border-secondary-500'
         : 'text-[#ADB7BE]'
 
     return (
