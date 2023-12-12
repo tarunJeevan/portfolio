@@ -1,9 +1,9 @@
-import AboutMe from './components/AboutMe'
-import AchievementsSection from './components/AchievementsSection'
-import Footer from './components/Footer'
-import HeroSection from './components/HeroSection'
-import NavBar from './components/NavBar'
-import ProjectsSection from './components/ProjectsSection'
+import AboutMe from '@/components/AboutMe'
+import AchievementsSection from '@/components/AchievementsSection'
+import Footer from '@/components/Footer'
+import HeroSection from '@/components/HeroSection'
+import NavBar from '@/components/NavBar'
+import ProjectsSection from '@/components/ProjectsSection'
 
 export default function Home() {
 
