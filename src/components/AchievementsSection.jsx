@@ -16,16 +16,10 @@ const achievmentsList = [
         postfix: ''
     },
     {
-        metric: 'Years',
+        metric: 'Experience',
         prefix: '~',
         value: 3,
-        postfix: ''
-    },
-    {
-        metric: 'Projects',
-        prefix: '',
-        value: 5,
-        postfix: '+'
+        postfix: 'years'
     }
 ]
 

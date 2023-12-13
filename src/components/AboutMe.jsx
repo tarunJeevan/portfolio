@@ -13,20 +13,30 @@ const TAB_DATA = [
     {
         title: 'Skills',
         id: 'skills',
-        content: (
-            <ul className="list-disc pl-2">
-                <li>JavaScript</li>
-                <li>C++</li>
-                <li>Java</li>
-                <li>C</li>
-                <li>HTML</li>
-                <li>Node.js</li>
-                <li>Express</li>
-                <li>MongoDB</li>
-                <li>React</li>
-                <li>CSS/Tailwind</li>
-                <li>Unreal Engine</li>
-            </ul>
+        content: ( //FIXME: Add multiple ul to organize languages, frameworks, cybersecurity, etc
+            <>
+                <ul className="list-disc pl-2">
+                    <li>JavaScript</li>
+                    <li>C++</li>
+                    <li>Java</li>
+                    <li>C</li>
+                    <li>HTML</li>
+                    <li>Node.js</li>
+                    <li>Express</li>
+                    <li>MongoDB</li>
+                    <li>React</li>
+                    <li>NMap</li>
+                    <li>TCPDump</li>
+                    <li>Wireshark</li>
+                    <li>Ghidra</li>
+                    <li>Autopsy</li>
+                    <li>Metasploit</li>
+                    <li>BeEf</li>
+                    <li>zsteg</li>
+                    <li>CSS/Tailwind</li>
+                    <li>Unreal Engine</li>
+                </ul>
+            </>
         )
     },
     {
