@@ -12,8 +12,7 @@ const PROJECTS_DATA = [
         description: 'A custom portfolio website made using Next.js',
         image: '/images/projects/1.png',
         tags: ['All', 'Web Apps'],
-        gitUrl: '/',
-        previewUrl: '/'
+        gitUrl: '/'
     },
     {
         id: 2,
@@ -21,8 +20,7 @@ const PROJECTS_DATA = [
         description: 'An online writing and worldbuilding tool',
         image: '/images/projects/2.png',
         tags: ['All', 'Web Apps'],
-        gitUrl: '/',
-        previewUrl: '/'
+        gitUrl: '/'
     },
     {
         id: 3,
@@ -30,8 +28,7 @@ const PROJECTS_DATA = [
         description: 'A personalized expenses calculator to track my revenue and expenses',
         image: '/images/projects/3.png',
         tags: ['All', 'Desktop Apps'],
-        gitUrl: '/',
-        previewUrl: '/'
+        gitUrl: '/'
     },
     {
         id: 4,
@@ -39,8 +36,7 @@ const PROJECTS_DATA = [
         description: 'A course project designed for student researchers that want to easily create and distribute custom surveys',
         image: '/images/projects/4.png',
         tags: ['All', 'Web Apps'],
-        gitUrl: '/',
-        previewUrl: '/'
+        gitUrl: '/'
     },
     {
         id: 5,
@@ -48,8 +44,7 @@ const PROJECTS_DATA = [
         description: 'A medieval fantasy game prototype built using Unreal Engine 5',
         image: '/images/projects/5.png',
         tags: ['All', 'Games'],
-        gitUrl: '/',
-        previewUrl: '/'
+        gitUrl: '/'
     },
     {
         id: 6,
@@ -57,8 +52,7 @@ const PROJECTS_DATA = [
         description: 'A survival game prototype built using Unreal Engine 5',
         image: '/images/projects/project1.png',
         tags: ['All', 'Games'],
-        gitUrl: '/',
-        previewUrl: '/'
+        gitUrl: '/'
     }
 ]
 
@@ -106,7 +100,7 @@ export default function ProjectsSection() {
                                 description={project.description}
                                 imgUrl={project.image}
                                 gitUrl={project.gitUrl}
-                                previewUrl={project.previewUrl}
+                                projectId={project.id}
                             />
                         </motion.li>
                     )
@@ -116,7 +110,7 @@ export default function ProjectsSection() {
     )
 }
 
-function ProjectCard({ imgUrl, title, description, gitUrl, previewUrl }) {
+function ProjectCard({ imgUrl, title, description, gitUrl, projectId }) {
 
     return (
         <div>
@@ -128,7 +122,7 @@ function ProjectCard({ imgUrl, title, description, gitUrl, previewUrl }) {
                     <Link href={gitUrl} className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link">
                         <CodeBracketIcon className="h-10 w-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#ADB7BE] cursor-pointer group-hover/link:text-white" />
                     </Link>
-                    <Link href={previewUrl} className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link">
+                    <Link href={`/project/${projectId}`} className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link">
                         <EyeIcon className="h-10 w-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#ADB7BE] cursor-pointer group-hover/link:text-white" />
                     </Link>
                 </div>
