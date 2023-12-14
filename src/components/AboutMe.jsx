@@ -45,8 +45,8 @@ const TAB_DATA = [
         content: (
             <ul className="list-disc pl-2">
                 <li>Purdue University Fort Wayne, Ft Wayne, IN</li>
-                <li>Bachelor's in Computer Science</li>
-                <li>Master's in Computer Science</li>
+                <li>Bachelor&apos;s in Computer Science</li>
+                <li>Master&apos;s in Computer Science</li>
             </ul>
         )
     },
@@ -65,7 +65,7 @@ const TAB_DATA = [
         content: (
             <ul className="list-disc pl-2">
                 <li>Writing Center Consultant</li>
-                <li>Teacher's Assistant for Computer Security course</li>
+                <li>Teacher&apos;s Assistant for Computer Security course</li>
             </ul>
         )
     }
