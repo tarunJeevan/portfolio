@@ -3,6 +3,7 @@ import Image from "next/image"
 import { TypeAnimation } from 'react-type-animation'
 import { motion } from "framer-motion"
 
+// FIXME: Put profile picture above hire me button
 export default function HeroSection() {
     return (
         <section className="lg:py-16">
@@ -43,6 +44,7 @@ export default function HeroSection() {
                         </button>
                     </div>
                 </motion.div>
+                
                 {/* Image */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0 }}

@@ -45,8 +45,8 @@ const TAB_DATA = [
         content: (
             <ul className="list-disc pl-2">
                 <li>Purdue University Fort Wayne, Ft Wayne, IN</li>
-                <li>Bachelor's in Computer Science</li>
-                <li>Master's in Computer Science</li>
+                <li>Bachelor&apos;s in Computer Science</li>
+                <li>Master&apos;s in Computer Science</li>
             </ul>
         )
     },
@@ -65,7 +65,7 @@ const TAB_DATA = [
         content: (
             <ul className="list-disc pl-2">
                 <li>Writing Center Consultant</li>
-                <li>Teacher's Assistant for Computer Security course</li>
+                <li>Teacher&apos;s Assistant for Computer Security course</li>
             </ul>
         )
     }
@@ -83,12 +83,13 @@ export default function AboutMe() {
 
     return (
         <section className="text-white">
-            <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
+            <div className="md:grid md:grid-cols-2 gap-8 items-start py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
                 <Image
-                    src={''}
+                    src={'/images/about.png'}
                     alt="About Me Image"
                     width={500}
                     height={500}
+                    className="w-full"
                 />
                 <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
                     <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>

@@ -19,10 +19,11 @@ const achievmentsList = [
         metric: 'Experience',
         prefix: '~',
         value: 3,
-        postfix: 'years'
+        postfix: ' years'
     }
 ]
 
+// FIXME: Make mobile responsive
 export default function AchievementsSection() {
 
     return (
