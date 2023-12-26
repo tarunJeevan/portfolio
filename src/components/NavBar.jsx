@@ -1,5 +1,5 @@
 'use client'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
+import { HiBars3, HiXMark } from 'react-icons/hi2'
 import Link from "next/link"
 import { useState } from "react"
 
@@ -18,26 +18,27 @@ const navLinks = [
     }
 ]
 
+// FIXME: Make mobile responsive
 export default function NavBar() {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
-            <div className="flex flex-wrap container lg:py-4 items-center justify-between mx-auto px-4 py-2">
+        <nav className="fixed mx-auto border-b-2 border-b-[#5b5d68] top-0 left-0 right-0 z-10 bg-[#33353F] bg-opacity-100">
+            <div className="flex flex-wrap container lg:py-4 items-center justify-between mx-auto px-4 py-2 sm:px-0 sm:py-0">
                 <Link href={'/'} className="text-2xl md:text-5xl text-white font-semibold">LOGO</Link>
-                <div className="mobile-menu block md:hidden">
+                <div className="block md:hidden">
                     {!isOpen
                         ? <button
                             onClick={() => setIsOpen(true)}
-                            className='flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white'
+                            className='flex items-center px-2 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white'
                         >
-                            <Bars3Icon className='h-5 w-5' />
+                            <HiBars3 className='h-5 w-5' />
                         </button>
                         : <button
                             onClick={() => setIsOpen(false)}
-                            className='flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white'
+                            className='flex items-center px-2 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white'
                         >
-                            <XMarkIcon className='h-5 w-5' />
+                            <HiXMark className='h-5 w-5' />
                         </button>
                     }
                 </div>

@@ -1,5 +1,6 @@
 'use client'
-import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline"
+import { HiOutlineCodeBracket, HiOutlineEye } from 'react-icons/hi2'
+// TODO: Try 'react-icons/fa6' as well
 import Link from "next/link"
 import { useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
@@ -18,7 +19,7 @@ const PROJECTS_DATA = [
         id: 2,
         title: 'MERN Writing Tool Website',
         description: 'An online writing and worldbuilding tool',
-        image: '/images/projects/2.png',
+        image: '/images/projects/writing-tool-2.png',
         tags: ['All', 'Web Apps'],
         gitUrl: '/'
     },
@@ -56,6 +57,7 @@ const PROJECTS_DATA = [
     }
 ]
 
+// FIXME: Make mobile responsive
 export default function ProjectsSection() {
     const [filter, setFilter] = useState('All')
     const viewRef = useRef(null)
@@ -70,7 +72,7 @@ export default function ProjectsSection() {
         setFilter(newFilter)
     }
 
-    // TODO: Use useMemo here?
+    // FIXME: Use useMemo here?
     const filteredProjects = PROJECTS_DATA.filter((project) => {
         project.tags.includes(filter)
     })
@@ -120,10 +122,10 @@ function ProjectCard({ imgUrl, title, description, gitUrl, projectId }) {
             >
                 <div id="card-overlay" className="overlay items-center justify-center absolute top-0 left-0 h-full w-full bg-[#181818] bg-opacity-0 hidden gap-1 group-hover:flex group-hover:bg-opacity-80 transition-all duration-500">
                     <Link href={gitUrl} className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link">
-                        <CodeBracketIcon className="h-10 w-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#ADB7BE] cursor-pointer group-hover/link:text-white" />
+                        <HiOutlineCodeBracket className="h-10 w-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#ADB7BE] cursor-pointer group-hover/link:text-white" />
                     </Link>
                     <Link href={`/project/${projectId}`} className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link">
-                        <EyeIcon className="h-10 w-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#ADB7BE] cursor-pointer group-hover/link:text-white" />
+                        <HiOutlineEye className="h-10 w-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#ADB7BE] cursor-pointer group-hover/link:text-white" />
                     </Link>
                 </div>
             </div>
