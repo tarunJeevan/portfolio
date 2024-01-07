@@ -14,6 +14,13 @@ const skill = {
             title: 'Skill Logo',
             type: 'image',
             options: { hotspot: true },
+            fields: [
+                {
+                    name: 'alt',
+                    title: 'Alt',
+                    type: 'string'
+                }
+            ],
             validation: Rule => Rule.required()
         },
         {
@@ -21,7 +28,6 @@ const skill = {
             title: 'Tag',
             description: 'Ex: Frontend, Backend, Language, Game Dev, Cybersecurity, etc.',
             type: 'string',
-            validation: Rule => Rule.required()
         }
     ]
 }

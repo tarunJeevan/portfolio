@@ -18,6 +18,13 @@ const testimonial = {
             name: 'imageurl',
             title: 'Image URL',
             type: 'image',
+            fields: [
+                {
+                    name: 'alt',
+                    title: 'Alt',
+                    type: 'string'
+                }
+            ],
             options: [{ hotspot: true }]
         },
         {

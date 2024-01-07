@@ -1,60 +1,11 @@
 'use client'
-import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline"
+import { HiCodeBracket, HiOutlineEye } from 'react-icons/hi2'
 import Link from "next/link"
 import { useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
 
-// FIXME: Add proper git and preview URLs. Fix project descriptions
-const PROJECTS_DATA = [
-    {
-        id: 1,
-        title: 'Next.js Portfolio Website',
-        description: 'A custom portfolio website made using Next.js',
-        image: '/images/projects/1.png',
-        tags: ['All', 'Web Apps'],
-        gitUrl: '/'
-    },
-    {
-        id: 2,
-        title: 'MERN Writing Tool Website',
-        description: 'An online writing and worldbuilding tool',
-        image: '/images/projects/2.png',
-        tags: ['All', 'Web Apps'],
-        gitUrl: '/'
-    },
-    {
-        id: 3,
-        title: 'Expenses Calculator',
-        description: 'A personalized expenses calculator to track my revenue and expenses',
-        image: '/images/projects/3.png',
-        tags: ['All', 'Desktop Apps'],
-        gitUrl: '/'
-    },
-    {
-        id: 4,
-        title: 'Student Survey App',
-        description: 'A course project designed for student researchers that want to easily create and distribute custom surveys',
-        image: '/images/projects/4.png',
-        tags: ['All', 'Web Apps'],
-        gitUrl: '/'
-    },
-    {
-        id: 5,
-        title: 'The Proving Grounds',
-        description: 'A medieval fantasy game prototype built using Unreal Engine 5',
-        image: '/images/projects/5.png',
-        tags: ['All', 'Games'],
-        gitUrl: '/'
-    },
-    {
-        id: 6,
-        title: 'Prison Island',
-        description: 'A survival game prototype built using Unreal Engine 5',
-        image: '/images/projects/project1.png',
-        tags: ['All', 'Games'],
-        gitUrl: '/'
-    }
-]
+// TODO: Fill PROJECTS_DATA with Sanity content
+const PROJECTS_DATA = []
 
 export default function ProjectsSection() {
     const [filter, setFilter] = useState('All')
@@ -70,14 +21,14 @@ export default function ProjectsSection() {
         setFilter(newFilter)
     }
 
-    // TODO: Use useMemo here?
+    // FIXME: Use useMemo here?
     const filteredProjects = PROJECTS_DATA.filter((project) => {
         project.tags.includes(filter)
     })
 
     return (
-        <section>
-            <h2>My Projects</h2>
+        <section id='projects'>
+            <h2 className="text-4xl text-center font-bold text-white mb-4">My Projects</h2>
             <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
                 <ProjectTag name={'All'} onClick={handleFilterChange} isSelected={filter === 'All'} />
                 <ProjectTag name={'Web'} onClick={handleFilterChange} isSelected={filter === 'Web'} />
@@ -120,10 +71,10 @@ function ProjectCard({ imgUrl, title, description, gitUrl, projectId }) {
             >
                 <div id="card-overlay" className="overlay items-center justify-center absolute top-0 left-0 h-full w-full bg-[#181818] bg-opacity-0 hidden gap-1 group-hover:flex group-hover:bg-opacity-80 transition-all duration-500">
                     <Link href={gitUrl} className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link">
-                        <CodeBracketIcon className="h-10 w-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#ADB7BE] cursor-pointer group-hover/link:text-white" />
+                        <HiCodeBracket className="h-10 w-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#ADB7BE] cursor-pointer group-hover/link:text-white" />
                     </Link>
                     <Link href={`/project/${projectId}`} className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link">
-                        <EyeIcon className="h-10 w-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#ADB7BE] cursor-pointer group-hover/link:text-white" />
+                        <HiOutlineEye className="h-10 w-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#ADB7BE] cursor-pointer group-hover/link:text-white" />
                     </Link>
                 </div>
             </div>

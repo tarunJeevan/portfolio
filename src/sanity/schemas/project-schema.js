@@ -32,7 +32,7 @@ const project = {
         {
             name: 'githuburl',
             title: 'GitHub URL',
-            type: 'url',
+            type: 'string',
             validation: Rule => Rule.required()
         },
         {

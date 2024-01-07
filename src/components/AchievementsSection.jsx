@@ -19,7 +19,7 @@ const achievmentsList = [
         metric: 'Experience',
         prefix: '~',
         value: 3,
-        postfix: 'years'
+        postfix: 'yrs'
     }
 ]
 
