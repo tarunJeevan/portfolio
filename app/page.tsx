@@ -1,10 +1,10 @@
-import Image from "next/image";
+import Intro from "@/components/intro"
 
 export default function Home() {
 	return (
 		<section className="py-24">
 			<div className="container max-w-3xl">
-				<h1 className="text-3xl font-bold">Portfolio</h1>
+				<Intro />
 			</div>
 		</section>
 	);
