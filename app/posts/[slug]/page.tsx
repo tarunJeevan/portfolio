@@ -1,19 +1,20 @@
-import React from 'react'
-import { getPostBySlug } from '@/lib/posts'
-import { formatDate } from '@/lib/utils'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeftIcon } from '@radix-ui/react-icons'
 import Image from 'next/image'
-import { MDXRemote } from 'next-mdx-remote/rsc'
 
-// Customize styling via className and pass the object into MDXRemote's components prop
-const componentStyles = {
-    h1: (props: any) => (
-        <h1 {...props} className=''>
-            props.children
-        </h1>
-    )
+import MDXContent from '@/components/mdx-content'
+import { getPostBySlug, getPosts } from '@/lib/posts'
+import { formatDate } from '@/lib/utils'
+
+import { ArrowLeftIcon } from '@radix-ui/react-icons'
+
+/* Tells Next.js to statically generate pages for the slugs we have. This boosts performance 
+so users don't have to wait for a page to be rendered dynamically */
+export async function generateStaticParams() {
+    const posts = await getPosts()
+    const slugs = posts.map(post => ({ slug: post.slug }))
+
+    return slugs
 }
 
 export default async function Post({ params }: { params: { slug: string } }) {
@@ -48,7 +49,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                 </header>
 
                 <main className="prose mt-16 dark:prose-invert">
-                    <MDXRemote source={content} />
+                    <MDXContent source={content} />
                 </main>
             </div>
         </section>
