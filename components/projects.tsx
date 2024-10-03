@@ -6,10 +6,13 @@ import { formatDate } from '@/lib/utils'
 
 export default function Projects({ projects }: { projects: ProjectMetadata[] }) {
     return (
-        <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+        <ul className="flex flex-row flex-wrap gap-8">
             {projects.map(project => (
-                <li key={project.slug} className="group relative">
-                    <Link href={`/projects/${project.slug}`}>
+                <li key={project.slug}>
+                    <Link
+                        href={`/projects/${project.slug}`}
+                        className='flex flex-col justify-between gap-x-4 gap-y-1 max-w-xs h-60 px-2 py-2 rounded-md border-solid hover:border-2 dark:hover:border-gray-300/50'
+                    >
                         {project.image && (
                             <div className="h-72 w-full overflow-hidden bg-muted sm:h-60">
                                 <Image
@@ -17,26 +20,26 @@ export default function Projects({ projects }: { projects: ProjectMetadata[] }) 
                                     alt={project.title || ''}
                                     fill
                                     // TODO: Complete className
-                                    className='rounded-lg object-cover object-center'
+                                    className='object-cover object-center'
                                 />
                             </div>
                         )}
 
-                        {/* TODO: Complete className */}
-                        <div className="absolute inset-[1px] rounded-lg bg-background/70"></div>
+                        <h2 className="title line-clamp-1 text-xl no-underline">
+                            {project.title}
+                        </h2>
 
-                        {/* TODO: Complete className */}
-                        <div className="absolute inset-x-0 bottom-0 translate-y-2 px-6">
-                            <h2 className="title line-clamp-1 text-xl no-underline">
-                                {project.title}
-                            </h2>
-                            <p className="line-clamp-1 text-sm text-muted-foreground">
+                        <div className='mt-auto'>
+                            <p className="line-clamp-2 text-sm font-light italic text-muted-foreground">
                                 {project.summary}
                             </p>
-                            <p className="text-xs font-light text-muted-foreground">
+                        </div>
+
+                        {project.publishedAt && (
+                            <p className="mt-1 text-sm font-light">
                                 {formatDate(project.publishedAt ?? '')}
                             </p>
-                        </div>
+                        )}
                     </Link>
                 </li>
             ))}

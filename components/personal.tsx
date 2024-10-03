@@ -1,6 +1,8 @@
-export default function PersonalPage() {
+
+export default function Personal() {
     return (
-        <div>page</div>
+        <div>AboutMe</div>
+        
     )
 }
 

@@ -5,7 +5,10 @@ import { highlight } from "sugar-high"
 // Custom component to style <code> tags which display code snippets in Markdown
 function Code({ children, ...props }: any) {
     let codeHtml = highlight(children)
-    return <code dangerouslySetInnerHTML={{ __html: codeHtml }} {...props} />
+    return <code
+        dangerouslySetInnerHTML={{ __html: codeHtml }}
+        {...props}
+    />
 }
 
 const components = {

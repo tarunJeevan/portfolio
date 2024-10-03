@@ -7,12 +7,15 @@ export default function Header() {
             <nav className="container flex max-w-3xl items-center justify-between">
                 <div>
                     <Link href='/' className="font-serif text-2xl font-bold">
-                        HB
+                        TJ
                     </Link>
                 </div>
 
-{/* ul class missing something near the end - 'sm...' */}
+                {/* ul class missing something near the end - 'sm...' */}
                 <ul className="flex items-center gap-6 text-sm font-light text-muted-foreground">
+                    <li className="transition-colors hover:text-foreground">
+                        <Link href='/about-me'>About Me</Link>
+                    </li>
                     <li className="transition-colors hover:text-foreground">
                         <Link href='/posts'>Posts</Link>
                     </li>
@@ -25,7 +28,7 @@ export default function Header() {
                 </ul>
 
                 <div>
-                    <ThemeToggle/>
+                    <ThemeToggle />
                 </div>
             </nav>
         </header>
