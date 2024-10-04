@@ -11,7 +11,7 @@ export default function Posts({ posts }: { posts: PostMetadata[] }) {
                     <Link
                         href={`/posts/${post.slug}`}
                         // TODO: Complete className
-                        className="flex flex-col justify-between gap-x-4 gap-y-1 max-w-xs px-2 py-2 rounded-md border-solid hover:border-2 dark:hover:border-gray-300/50"
+                        className="flex flex-col justify-between gap-x-4 gap-y-1 max-w-xs px-2 py-2 rounded-md hover:shadow-lg dark:hover:shadow-gray-500 transition-all duration-100"
                     >
                         <div className="max-w-lg">
                             <p className="text-lg font-semibold">{post.title}</p>
