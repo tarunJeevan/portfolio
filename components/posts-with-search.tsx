@@ -30,7 +30,7 @@ export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
     // Filter postTags to get all unique tags. Used to render options for select
     const uniqueTags = [...new Set(postTags)]
 
-    const isFiltered = query.length > 0
+    const isFiltered = query.length > 0 || selectedTag !== 'All'
 
     function resetFilter() {
         setQuery('')
@@ -40,9 +40,8 @@ export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
     return (
         <div>
             <div className="mb-12 flex items-center gap-3">
-                {/* TODO: Confirm this select code works */}
                 <Select onValueChange={value => setSelectedTag(value)}>
-                    <SelectTrigger className="w-32">
+                    <SelectTrigger className="w-32 max-w-32">
                         <SelectValue placeholder='Tags' />
                     </SelectTrigger>
                     <SelectContent>
@@ -58,7 +57,7 @@ export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
                 <Input
                     type="text"
                     placeholder="Search posts..."
-                    className="h-9 w-full sm:w-1/2"
+                    className="h-9 w-3/5"
                     value={query}
                     onChange={e => setQuery(e.target.value)}
                 />
