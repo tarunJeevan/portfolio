@@ -5,18 +5,17 @@ import SideMenu from "./side-menu"
 export default async function Personal() {
     const post = await getPostBySlug('biography')
 
-    // TODO: Figure out how to fix this error
     const { metadata, content } = post!
     const { tags } = metadata
 
     return (
-        <div className="flex flex-row gap-x-4 justify-between items-center">
+        // TODO: Figure out sticky property. Distance from top is 80
+        <div className="flex flex-row gap-x-4 items-start sticky top-20">
             {/* Side Menu */}
-            <SideMenu tags={tags ?? ['']} />
+            <SideMenu tags={tags!} />
 
             {/* Info section */}
-            {/* TODO: Style main if necessary */}
-            <main className="">
+            <main className="prose dark:prose-invert max-w-3xl px-4">
                 <MDXContent source={content} />
             </main>
         </div>
