@@ -1,13 +1,26 @@
 'use client'
 
-import AnimatedNumber from "react-animated-numbers"
+import { animated, useSpring } from '@react-spring/web'
+import { useEffect, useState } from 'react'
 
 // TODO: Add more achievements
 const achievmentsList = [
     {
         metric: 'Projects',
-        prefix: '+',
+        prefix: '',
         value: 5,
+        postfix: '+'
+    },
+    // {
+    //     metric: 'Users',
+    //     prefix: '~',
+    //     value: 10000,
+    //     postfix: ''
+    // },
+    {
+        metric: 'Certifications',
+        prefix: '',
+        value: 2,
         postfix: ''
     },
     {
@@ -17,12 +30,29 @@ const achievmentsList = [
         postfix: ''
     },
     {
-        metric: 'Experience',
-        prefix: '~',
+        metric: 'Years',
+        prefix: '',
         value: 3,
-        postfix: 'years'
+        postfix: '+'
     }
 ]
+
+// Animated number component
+function AnimatedNumber({ n }: { n: number }) {
+    const [trigger, setTrigger] = useState(0)
+
+    useEffect(() => {
+        setTrigger(prev => prev + 1)
+    }, [n])
+
+    const props = useSpring({
+        from: { value: 0 },
+        to: { value: n },
+        config: { mass: 1, tension: 2, friction: 1, duration: 300 }
+    })
+
+    return (<animated.span>{props.value.to((val) => Math.floor(val))}</animated.span>)
+}
 
 export default function Achievements() {
     return (
@@ -33,21 +63,7 @@ export default function Achievements() {
                         <div key={index} className="flex flex-col items-center justify-center mx-4">
                             <h2 className="text-black dark:text-white text-4xl font-bold flex flex-row">
                                 {item.prefix}
-                                <AnimatedNumber
-                                    includeComma
-                                    animateToNumber={item.value}
-                                    locale='en-US'
-                                    className='text-black dark:text-white text-4xl font-bold'
-                                    transitions={(index) => ({
-                                        // TODO: Figure out transition details
-                                        // mass: 1,
-                                        // friction: 100,
-                                        // tensions: 140 * (index + 1)
-                                        type: 'spring',
-                                        duration: index + 0.3
-                                    })}
-                                />
-                                &nbsp;
+                                <AnimatedNumber n={item.value} />
                                 {item.postfix}
                             </h2>
                             <p className="text-base font-light text-muted-foreground dark:text-[#ADB7BE]">
