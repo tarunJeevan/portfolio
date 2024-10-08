@@ -53,7 +53,7 @@ export default function ProjectsWithSearch({ projects }: { projects: ProjectMeta
     return (
         <div className="flex flex-row gap-8">
             {/* Filter by tags */}
-            <div className="flex flex-col h-full max-w-xs gap-y-4">
+            <div className="flex flex-col h-full max-w-xs gap-y-4 sticky top-20">
                 <h3 className="font-bold text-2xl">Tags</h3>
                 {uniqueTags.map(tag => (
                     <div key={tag?.toLowerCase().replace(/\s+/g, '-')}>

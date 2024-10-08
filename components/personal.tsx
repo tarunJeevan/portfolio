@@ -9,7 +9,6 @@ export default async function Personal() {
     const { tags } = metadata
 
     return (
-        // TODO: Figure out sticky property. Distance from top is 80
         <div className="flex flex-row gap-x-4 items-start sticky top-20">
             {/* Side Menu */}
             <SideMenu tags={tags!} />
