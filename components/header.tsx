@@ -11,7 +11,6 @@ export default function Header() {
                     </Link>
                 </div>
 
-                {/* ul class missing something near the end - 'sm...' */}
                 <ul className="flex items-center gap-6 text-sm font-light text-muted-foreground">
                     <li className="transition-colors hover:text-foreground">
                         <Link href='/about-me'>About Me</Link>

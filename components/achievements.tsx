@@ -56,8 +56,8 @@ function AnimatedNumber({ n }: { n: number }) {
 
 export default function Achievements() {
     return (
-        <section className="pb-24 px-4 xl:gap-16 xl:px-16">
-            <div className="border-[#33353F] border rounded-md py-4 px-8 flex flex-row items-center justify-between">
+        <section className="pb-24 px-4">
+            <div className="border-transparent sm:border-[#33353F] border rounded-md gap-y-4 py-4 px-8 flex flex-col sm:flex-row items-center justify-between">
                 {achievmentsList.map((item, index) => {
                     return (
                         <div key={index} className="flex flex-col items-center justify-center mx-4">
