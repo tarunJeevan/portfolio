@@ -14,7 +14,7 @@ export default function Projects({ projects }: { projects: ProjectMetadata[] }) 
                         className='flex flex-col justify-between gap-x-4 gap-y-1 max-w-xs h-60 px-2 py-2 rounded-md hover:shadow-lg dark:hover:shadow-gray-500 transition-all duration-100'
                     >
                         {project.image && (
-                            <div className="h-72 w-full overflow-hidden bg-muted sm:h-60">
+                            <div className="relative h-72 w-full overflow-hidden bg-muted sm:h-60">
                                 <Image
                                     src={project.image}
                                     alt={project.title || ''}
@@ -25,7 +25,7 @@ export default function Projects({ projects }: { projects: ProjectMetadata[] }) 
                             </div>
                         )}
 
-                        <h2 className="title line-clamp-1 text-xl no-underline">
+                        <h2 className="title text-xl no-underline">
                             {project.title}
                         </h2>
 

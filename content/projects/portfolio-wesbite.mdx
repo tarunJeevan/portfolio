@@ -1,0 +1,90 @@
+---
+title: Portfolio Website
+summary: A portfolio website to showcase my background, experience, skills, and more to employers, peers, clients, and just about anyone interested in a talented developer.
+image: /images/projects/portfolio-thumbnail.png
+author: 'Tarun Jeevan'
+publishedAt: '2024-10-25'
+tags: ['Web Dev', 'Next.js', 'TypeScript', 'TailwindCSS']
+---
+
+## **Introduction**
+Creating a personal portfolio website was something I knew I wanted to tackle as soon as I started my development career. It&apos;s a central hub to share my background, skills, hobbies, experience, and projects with employers, peers, and clients. This website is more than just a showcase — it&apos;s a dynamic reflection of who I am as a developer and person, complete with an embedded blog and detailed project reports that document my growth over time.
+
+## **Technology Stack**
+- **Framework**: Next.js (TypeScript)
+- **Styling**: TailwindCSS, Shadcn/ui
+- **Content**: Projects and Blog Posts written in Markdown
+
+I chose Next.js for its efficient server-side rendering capabilities, which makes the site highly performant and SEO-friendly. TailwindCSS, combined with TypeScript, ensured a smooth, customizable, and responsive design. Markdown simplified content management for my blog and project reports, making it easy to add or update content without requiring complex changes to the codebase.
+
+## **Development Process**
+### **Planning and Approach**
+I began by researching design trends and analyzing other portfolios to create an aesthetically pleasing, intuitive site structure. Project planning and wireframing with Milanote helped solidify my ideas visually and structurally. From there, I mapped out the technical requirements.
+
+The core features I identified were: 
+1. **Self-Description and Promotion**: A page where visitors can learn about my skills, experience, and career goals.
+2. **Project Reports and Blogs**: Embedded blog posts and project reports rendered from Markdown files to allow for quick updates and easy readability.
+3. **Responsive Design**: Ensuring seamless experience across desktop, tablet, and mobile screens.
+4. **Light/Dark Mode**: Allowing users to toggle between light and dark themes to enhance usability and appeal.
+
+### **Key Features and Functionality**
+#### **Self-Description and Skills**
+This section gives an overview of my skills, tools, and background. I focused on making it clear and easy to read, detailing my strengths and showcasing my journey as a developer.
+
+#### **Embedded Blog and Project Reports**
+Instead of static content, I wanted the site to be interactive and continuously updated. Blog posts and project reports are written in Markdown, making content creation straightforward. This structure allows viewers to explore my projects in-depth and gain insights into my development philosophy.
+
+#### **Responsive Web Design**
+With TailwindCSS&apos;s responsive classes, I ensured that each component adjusted smoothly for various screen sizes, which was a challenging but rewarding addition. Testing on multiple devices and viewports using Chrome&apos;s Developer Tools allowed me to polish the design, creating a consistent experience across all platforms.
+
+#### **Light and Dark Mode**
+Using TailwindCSS, I implemented a toggle for light and dark mode. This feature enhances usability by catering to different user preferences and conditions. In the future, I am considering adding further color themes to let viewers customize their viewing experience.
+
+### **Code Snippet**
+Here&apos;s a glimpse of how I enabled the Markdown rendering for blog and project content:
+
+```TypeScript
+// Return a list of posts from the content directory sorted by most recent, with the option to limit the number of posts
+export async function getPosts(limit?: number): Promise<PostMetadata[]> {
+    const files = fs.readdirSync(rootDirectory)
+
+    // Process files into a more appropriate data structure and filter by date
+    const posts = files
+        .map(file => getPostMetadata(file))
+        .sort((a, b) => {
+            if (new Date(a.publishedAt ?? '') < new Date(b.publishedAt ?? ''))
+                return 1
+            else
+                return -1
+        })
+
+    // Return a smaller list of the most recent posts if a limit was specified
+    if (limit)
+        return posts.slice(0, limit)
+
+    return posts
+}
+```
+
+### **Challenges and Solutions**
+- **Markdown Integration**: While using Markdown for dynamic content was ideal for quick updates, parsing and styling Markdown required additional configuration. I used `gray-matter` for parsing and `MDXRemote` for rendering Markdown with JSX components, which streamlined the process. I also used `sugar-high` to improve code highlighting in the rendered Markdown.
+- **Theme Toggle Implementation**: Implementing the light/dark mode toggle involved working with TailwindCSS&apos;s dark mode utility. Managing theme persistence between sessions required custom TypeScript to create a Theme Provider using `next-themes` to apply theming to the entire site and store user preferences, ensuring a smooth user experience.
+
+## **Outcome**
+The portfolio website now serves as an all-in-one showcase, allowing anyone to easily access my projects, blog, and personal background. Thanks to the light/dark mode and responsive design, users can navigate comfortably on any device or environment.
+
+### **What I Learned**
+- **Dynamic Content Management**: Integrating Markdown with Next.js highlighted the benefits of lightweight, flexible content management.
+- **TailwindCSS Utility**: This project gave me deeper insight into TailwindCSS, particularly its utility classes for theming and responsive design.
+- **User Experience Prioritization**: Creating an interactive, responsive website reinforced the importance of user experience, accessibility, and aesthetic appeal.
+
+### **What Could Be Improved**
+Looking ahead, I want to:
+- Implement **server-side analytics** to better understand user interaction and optimize the site based on visitor behavior.
+- Explore more advanced **accessibility features** to make the site inclusive to users of all abilities.
+
+## **Reflection and Conclusion**
+Developing this portfolio website pushed me to innovate, experiment, and refine my skills in both front-end and back-end development. This project not only showcases my experience and skills but also provides a central platform for sharing my journey, insights, and projects with the community.
+
+## **Call to Action**
+If you&apos;re interested in seeing the site live, well, you&apos;re already here! Feel free to explore the [project repository](https://github.com/tarunJeevan/portfolio) on GitHub or reach out if you have any feedback or questions!
