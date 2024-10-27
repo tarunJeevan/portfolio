@@ -8,7 +8,7 @@ export default function Intro() {
             <div className="relative">
                 <Image
                     className="flex-1 rounded-lg grayscale"
-                    src='/images/profilePic.png'
+                    src='/images/profile.png'
                     alt="Tarun Jeevan"
                     width={250}
                     height={250}

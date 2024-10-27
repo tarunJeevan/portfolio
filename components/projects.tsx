@@ -19,7 +19,6 @@ export default function Projects({ projects }: { projects: ProjectMetadata[] }) 
                                     src={project.image}
                                     alt={project.title || ''}
                                     fill
-                                    // TODO: Complete className
                                     className='object-cover object-center'
                                 />
                             </div>

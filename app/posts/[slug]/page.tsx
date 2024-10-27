@@ -35,12 +35,6 @@ export default async function Post({ params }: { params: { slug: string } }) {
                     <span>Back to posts</span>
                 </Link>
 
-                {image && (
-                    <div className="relative mb-6 h-96 w-full overflow-hidden rounded-lg">
-                        <Image src={image} alt={title || ''} className="object-cover" fill />
-                    </div>
-                )}
-
                 <header>
                     <h1 className="title">{title}</h1>
                     <p className="mt-3 text-xs text-muted-foreground">

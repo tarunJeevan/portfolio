@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
@@ -22,31 +21,18 @@ export default async function Project({ params }: { params: { slug: string } }) 
         notFound()
 
     const { metadata, content } = project
-    const { title, image, author, publishedAt } = metadata
+    const { title, author, publishedAt } = metadata
 
     return (
         <section className="pb-24 pt-32">
             <div className="container max-w-3xl">
                 <Link
                     href='/projects'
-                    // TODO: Complete className
                     className="mb-8 inline-flex items-center gap-2 text-sm font-light"
                 >
                     <ArrowLeftIcon className="h-5 w-5" />
                     <span>Back to projects</span>
                 </Link>
-
-                {image && (
-                    // TODO: Complete className
-                    <div className="relative mb-6 h-96 w-full overflow-hidden rounded-lg">
-                        <Image
-                            src={image}
-                            alt={title || ''}
-                            className="object-cover"
-                            fill
-                        />
-                    </div>
-                )}
 
                 <header>
                     <h1 className="title">{title}</h1>
@@ -55,7 +41,7 @@ export default async function Project({ params }: { params: { slug: string } }) 
                     </p>
                 </header>
 
-                <main className="prose mt-16 dark:prose-invert">
+                <main className="prose mt-16 dark:prose-invert max-w-3xl">
                     <MDXContent source={content} />
                 </main>
             </div>

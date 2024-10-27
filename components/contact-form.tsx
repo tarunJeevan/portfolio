@@ -1,6 +1,6 @@
 'use client'
 
-import Link from "next/link"
+// import Link from "next/link"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -108,12 +108,13 @@ export default function ContactForm() {
                         {isSubmitting ? 'Submitting...' : 'Contact Us'}
                     </Button>
                 </div>
-                <p className="mt-4 text-xs text-muted-foreground">
+                {/* TODO: Create privacy policy before uncommenting */}
+                {/* <p className="mt-4 text-xs text-muted-foreground">
                     By submitting this form, I agree to the{' '}
                     <Link href='/privacy' className="font-bold">
                         privacy policy.
                     </Link>
-                </p>
+                </p> */}
             </form>
         </section>
     )
