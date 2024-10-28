@@ -99,13 +99,14 @@ export default function ContactForm() {
                         )}
                     </div>
                 </div>
+                {/* Submit button */}
                 <div className="mt-6">
                     <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full disabled-opacity-full"
+                        className="w-full disabled:opacity-50"
                     >
-                        {isSubmitting ? 'Submitting...' : 'Contact Us'}
+                        {isSubmitting ? 'Submitting...' : 'Contact Me'}
                     </Button>
                 </div>
                 {/* TODO: Create privacy policy before uncommenting */}
