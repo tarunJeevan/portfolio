@@ -13,8 +13,11 @@ export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
     const [query, setQuery] = useState('')
     const [selectedTag, setSelectedTag] = useState('All')
 
+    // Filter out the Bio post
+    const blogPosts = posts.filter(post => !post.tags?.includes('Biography'))
+
     // Filter posts by tag and title
-    const filtered = posts.filter(post => {
+    const filtered = blogPosts.filter(post => {
         const matchesTitle = post.title?.toLowerCase().includes(query.toLowerCase())
         // If selectedTag is 'All' then show all posts. If not, filter
         const matchesTag = selectedTag !== 'All' ? post.tags?.includes(selectedTag) : true
@@ -23,7 +26,7 @@ export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
     })
 
     // Get all tags from all posts
-    const postTags = posts
+    const postTags = blogPosts
         .map(post => post.tags)
         .flat()
 
