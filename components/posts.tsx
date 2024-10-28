@@ -4,9 +4,13 @@ import { PostMetadata } from "@/lib/posts"
 import { formatDate } from "@/lib/utils"
 
 export default function Posts({ posts }: { posts: PostMetadata[] }) {
+
+    // Filter out About Me post
+    const filteredPosts = posts.filter(post => !post.tags?.includes('Biography'))
+
     return (
         <ul className="flex flex-row flex-wrap gap-8">
-            {posts.map(post => (
+            {filteredPosts.map(post => (
                 <li key={post.slug}>
                     <Link
                         href={`/posts/${post.slug}`}
