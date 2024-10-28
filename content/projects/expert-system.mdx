@@ -45,7 +45,38 @@ A standout feature of this project was the GPT-based user interface, which allow
 ### Code Snippet
 Here&apos;s a quick look at how we preprocessed the data:
 ```Python
+# Load the dataset
+data_path = '/kaggle/input/data/Data_Entry_2017.csv'
+data = pd.read_csv(data_path)
 
+# Select relevant columns
+selected_columns = ['Image Index','Follow-up #' ,'Finding Labels', 'Patient Age', 'Patient Gender', 'View Position']
+data_reduced = data[selected_columns]
+
+# Downsample the dataset (adjust the sample size as needed)
+data_downsampled = data_reduced.sample(n=800, random_state=42)
+
+# Handle skewed labels (downsampling common labels, upsampling rare labels)
+def balance_labels(data, label_column):
+    common_labels = ['Infiltration', 'Effusion', 'Atelectasis']  # Common labels
+    rare_labels = ['Nodule', 'Mass', 'Pneumothorax', 'Consolidation', 'Pleural_Thickening', 'Cardiomegaly', 'Emphysema', 'Edema', 'Fibrosis', 'Pneumonia', 'Hernia']  # Rare labels
+      
+    # Exclude "No Finding" from common labels
+    if "No Finding" in common_labels:
+        common_labels.remove("No Finding")
+    
+    # Downsample common labels
+    common_data = data[data[label_column].str.contains('|'.join(common_labels))]
+    common_data_downsampled = resample(common_data, replace=False, n_samples=250, random_state=42)
+    
+    # Upsample rare labels
+    rare_data = data[data[label_column].str.contains('|'.join(rare_labels))]
+    rare_data_upsampled = resample(rare_data, replace=True, n_samples=500, random_state=42)
+    
+    # Combine the balanced datasets
+    balanced_data = pd.concat([common_data_downsampled, rare_data_upsampled])
+    
+    return balanced_data
 ```
 
 ### **Challenges and Solutions**
