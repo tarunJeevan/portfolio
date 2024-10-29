@@ -25,14 +25,14 @@ export default function Intro() {
                 <div className="flex flex-row gap-x-2 py-2">
                     <Link
                         href='/about-me'
-                        className={`py-6 px-5 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-300 dark:hover:bg-emerald-400 ${buttonVariants({ variant: "default" })}`}
+                        className={buttonVariants({ variant: 'default' })}
                     >
                         About Me
                     </Link>
                     <Link
                         href='/resume.pdf'
                         target="_blank"
-                        className={`py-5 px-5 rounded-full border-4 border-sky-600 dark:border-sky-400 bg-sky-500 hover:bg-sky-600 dark:bg-sky-300 dark:hover:bg-sky-400 ${buttonVariants({ variant: 'default' })}`}
+                        className={`rounded-full border-4 border-sky-600 dark:border-sky-400 bg-sky-500 hover:bg-sky-600 dark:bg-sky-300 dark:hover:bg-sky-400 ${buttonVariants({ variant: 'default' })}`}
                     >
                         View Resume
                     </Link>

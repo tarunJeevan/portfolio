@@ -1,7 +1,7 @@
 import { JSX, SVGProps } from "react"
 
 // Add whatever socials necessary
-const navigation = [
+const socials = [
     {
         name: 'LinkedIn',
         href: 'https://www.linkedin.com/in/tarun-jeevan',
@@ -36,28 +36,34 @@ const navigation = [
 
 export default function Footer() {
     return (
-        <footer className="py-8">
+        <footer className="py-8 bg-gray-100 dark:bg-gray-900">
             <div className="container max-w-3xl">
                 <div className="md:flex md:items-center md:justify-between">
-                    {/* Social icons */}
-                    <div className="flex flex-row justify-center space-x-6 md:order-2">
-                        {navigation.map(item => (
-                            <a
-                                key={item.name}
-                                href={item.href}
-                                target="_blank"
-                                rel="noreferrer noopener"
-                                className="text-muted-foreground"
-                            >
-                                <span className="sr-only">{item.name}</span>
-                                <item.icon aria-hidden='true' className="h-5 w-5" />
-                            </a>
-                        ))}
+                    {/* Order 2: Contact options */}
+                    <div className="md:order-2 flex flex-col space-y-3 items-center md:items-end">
+                        <span className="font-bold title text-xl">Contact</span>
+                        {/* Mail link */}
+                        <a href="mailto:tjeevan200@gmail.com?subject=Reaching%20out&body=I%20saw%20your%20portfolio%20and%20wanted%20to%20discuss..." className="text-blue-500 dark:text-blue-300 hover:underline text-sm ">tjeevan200@gmail.com</a>
+                        {/* Social icons */}
+                        <div className="flex flex-row justify-center space-x-6 md:order-2">
+                            {socials.map(item => (
+                                <a
+                                    key={item.name}
+                                    href={item.href}
+                                    target="_blank"
+                                    rel="noreferrer noopener"
+                                    className="text-muted-foreground"
+                                >
+                                    <span className="sr-only">{item.name}</span>
+                                    <item.icon aria-hidden='true' className="h-5 w-5" />
+                                </a>
+                            ))}
+                        </div>
                     </div>
+                    {/* Order 1: Copyright */}
                     <div className="mt-8 md:order-1 md:mt-0">
-                        {/* Necessary? */}
                         <p className="text-center text-xs leading-5 text-muted-foreground">
-                            &copy; {new Date().getFullYear()} Your company. All rights reserved.
+                            &copy; {new Date().getFullYear()} Tarun Jeevan. All rights reserved.
                         </p>
                     </div>
                 </div>
