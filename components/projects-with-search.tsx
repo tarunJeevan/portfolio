@@ -51,31 +51,33 @@ export default function ProjectsWithSearch({ projects }: { projects: ProjectMeta
     }
 
     return (
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-col sm:flex-row gap-2">
             {/* Filter by tags */}
-            <div className="flex flex-col h-full w-44 gap-y-4 sticky top-20">
+            <div className="flex flex-row flex-wrap order-1 sm:flex-col h-full sm:w-40 gap-y-4 sm:sticky top-20">
                 <h3 className="font-bold text-2xl">Tags</h3>
-                {uniqueTags.map(tag => (
-                    <div key={tag?.toLowerCase().replace(/\s+/g, '-')}>
-                        <Checkbox
-                            id={tag?.toLowerCase().replace(/\s+/g, '-')}
-                            checked={selectedTags.includes(tag!)}
-                            onCheckedChange={() => handleCheckboxChange(tag!)}
-                            className="hidden"
-                        />
-                        <label
-                            htmlFor={tag?.toLowerCase().replace(/\s+/g, '-')}
-                            id={tag?.replace(/\s+/g, '-')}
-                            className='bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 text-sm border-2 rounded-md py-2 px-4 cursor-pointer'
-                        >
-                            {tag}
-                        </label>
-                    </div>
-                ))}
+                <div className="flex flex-row py-2 overflow-x-scroll sm:overflow-x-hidden gap-x-2 sm:gap-y-4 sm:flex-col">
+                    {uniqueTags.map(tag => (
+                        <div key={tag?.toLowerCase().replace(/\s+/g, '-')}>
+                            <Checkbox
+                                id={tag?.toLowerCase().replace(/\s+/g, '-')}
+                                checked={selectedTags.includes(tag!)}
+                                onCheckedChange={() => handleCheckboxChange(tag!)}
+                                className="hidden"
+                            />
+                            <label
+                                htmlFor={tag?.toLowerCase().replace(/\s+/g, '-')}
+                                id={tag?.replace(/\s+/g, '-')}
+                                className='bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 text-sm border-2 rounded-md py-2 px-2 cursor-pointer whitespace-nowrap'
+                            >
+                                {tag}
+                            </label>
+                        </div>
+                    ))}
+                </div>
             </div>
 
             {/* Searchbar + filtered list */}
-            <div className="flex flex-col gap-4 w-full">
+            <div className="flex flex-col order-2 gap-4 w-full">
                 {/* Searchbar */}
                 <div className="flex flex-row gap-x-4 items-center w-full">
                     <Input

@@ -6,7 +6,7 @@ import { formatDate } from '@/lib/utils'
 
 export default function Projects({ projects }: { projects: ProjectMetadata[] }) {
     return (
-        <ul className="flex flex-row flex-wrap gap-8">
+        <ul className="flex flex-col sm:flex-row flex-wrap gap-4">
             {projects.map(project => (
                 <li key={project.slug}>
                     <Link
