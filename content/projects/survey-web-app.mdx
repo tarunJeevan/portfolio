@@ -4,7 +4,7 @@ summary: A web app designed to provide a free and fully featured survey creation
 image: /images/projects/survey-app/survey-app-thumbnail.png
 author: 'Tarun Jeevan'
 publishedAt: '2024-10-9'
-tags: ['React.js', '.NET', 'MVC Framework']
+tags: ['React.js', 'JavaScript', 'C#', '.NET', 'MVC Framework', 'Web Dev', 'SQL Server', 'Firebase', 'Survey.js']
 ---
 
 ![Survey Web App Thumbnail](/images/projects/survey-app/survey-app-thumbnail.png)
@@ -19,10 +19,10 @@ The ***Survey Web App Prototype*** was developed as a **course project** from **
 The main goal of this project was to create a user-friendly web app where students could easily design surveys, distribute them, and collect responses. This required a collaborative approach to ensure that all aspects of survey creation and participation were seamlessly integrated, allowing users to perform these tasks with minimal friction.
 
 ### **Key Features**
-- **Frontend Survey Interface**: React.js components to create a modular and interactive user interface as well as Survey.js for intuitive survey design and participation.
-- **User Authentication**: Secure Firebase authentication to safeguard user accounts and data. We used Firebase&apos;s OAuth option to connect to Microsoft Azure Active Directory and set it up so only campus credentials could be used to log into and use our application. 
-- **Data Storage and Processing**: SQL Server and RESTful APIs for efficient data storage and processing, including both storing survey form data as well as processing survey results.
-- **Testing and Quality Assurance**: Comprehensive unit and end-to-end testing on the frontend with Cypress.
+- **Frontend Survey Interface**: **React.js** components to create a modular and interactive user interface as well as **Survey.js** for intuitive survey design and participation.
+- **User Authentication**: Secure **Firebase authentication** to safeguard user accounts and data. We used Firebase&apos;s OAuth option to connect to Microsoft **Azure Active Directory** and set it up so only campus credentials could be used to log into and use our application. 
+- **Data Storage and Processing**: **SQL Server** and RESTful APIs for efficient data storage and processing, including both storing survey form data as well as processing survey results.
+- **Testing and Quality Assurance**: Comprehensive unit and end-to-end testing on the frontend with **Cypress**.
 
 ## **Key Features and Functionality**
 ### **Survey Interface and Frontend Development**
@@ -35,7 +35,7 @@ I led the frontend development using React.js and Survey.js, focusing on an intu
 To secure user accounts, we integrated Firebase for authentication, supporting secure login and account management. Firebase allowed us to easily manage user credentials, ensuring smooth, secure access for students, teachers, and anyone with campus credentials to create and distribute surveys.
 
 ### **Backend Integration and Data Management**
-Working closely with our backend developer, we designed a **RESTful API** using** .NET and C# **to handle data requests, storage, and retrieval:
+Working closely with our backend developer, we designed a **RESTful API** using **.NET and C#** to handle data requests, storage, and retrieval:
 - **Data Processing and Storage**: We used SQL Server to store survey questions, responses, and user information securely. The database schema was optimized for fast access and efficient storage of survey data.
 - **API Development**: Created RESTful endpoints for communication between the frontend and backend, ensuring secure, efficient data handling.
 
@@ -46,7 +46,7 @@ To ensure a seamless experience, I wrote and implemented comprehensive unit and 
 
 ## **Technical Implementation**
 We used React.js for our frontend and .NET for our backend to provide users with a reactive and intuitive interface while handling all the more data operations on the backend. Here's part of the code we used to handle authentication via Firebase on the frontend and backend:
-#### Frontend
+### **Frontend**
 ```js
 useEffect(()=> {
     setLoading(true);
@@ -85,7 +85,7 @@ const microsoftAuth = () => {
     })
 }
 ```
-#### Backend
+### **Backend**
 ```cs
 // Validates user token for authentication and session management
 public async Task<bool> ValidateToken(string a_token) {
