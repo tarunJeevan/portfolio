@@ -3,7 +3,7 @@ title: About Me
 summary: A description of myself formatted similar to a resume but with greatly expanded information.
 author: 'Tarun Jeevan'
 publishedAt: '2024-10-5'
-tags: ['Biography', 'Skills', 'Experience', 'Education', 'Certifications', 'Awards']
+tags: ['About Me']
 ---
 
 ## Biography

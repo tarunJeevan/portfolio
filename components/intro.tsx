@@ -19,7 +19,7 @@ export default function Intro() {
                 <h1 className="title no-underline">
                     Hey, I&apos;m Tarun.
                     <p className="mt-3 font-light text-base text-muted-foreground">
-                        I&apos;m an Adjunct Professor in the Computer Science department of St Charles Community College, currently teaching their IT140 - Programming Languages for System Administrators course. My interests lie in web & network security, web development, and game development and I am especially passionate about teaching and research.
+                        I&apos;m an Adjunct Professor in the Computer Science department at St Charles Community College, currently teaching their IT-140: Programming Languages for System Administrators and IT-173: Topics in Cyber Security I courses. My interests lie in cybersecurity, web development, and game development and I am especially passionate about teaching and research.
                     </p>
                 </h1>
                 <div className="flex flex-row gap-x-2 py-2">

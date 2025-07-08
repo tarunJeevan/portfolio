@@ -20,7 +20,7 @@ export type PostMetadata = {
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
     try {
-        const filePath = path.join(rootDirectory, `${slug}.mdx`)
+        const filePath = path.join(rootDirectory, `${slug}.md`)
         const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' })
 
         const { data, content } = matter(fileContent)
@@ -54,7 +54,7 @@ export async function getPosts(limit?: number): Promise<PostMetadata[]> {
 // Process MDX files using gray-matter and return page front matter
 export function getPostMetadata(filepath: string): PostMetadata {
     // Create a slug using file name
-    const slug = filepath.replace(/\.mdx$/, '')
+    const slug = filepath.replace(/\.md$/, '')
     // Retrieve and read file
     const filePath = path.join(rootDirectory, filepath)
     const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' })

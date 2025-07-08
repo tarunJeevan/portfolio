@@ -13,7 +13,7 @@ export default async function RecentPosts() {
 
                 <Link
                     href='/posts'
-                    className="mt-8 inline-flex items-center gap-2 text-muted-foreground"
+                    className="mt-8 inline-flex items-center gap-2 text-muted-foreground underline transition-transform duration-300 transform hover:scale-125"
                 >
                     <span>All posts</span>
                 </Link>

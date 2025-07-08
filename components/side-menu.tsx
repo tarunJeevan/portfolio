@@ -2,7 +2,7 @@
 
 import { Button } from "./ui/button"
 
-export default function SideMenu({ tags }: { tags: string[] }) {
+export default function SideMenu({ headings }: { headings: string[] }) {
     // Function to smoothly transition to heading
     const scrollToAnchor = (anchorId: string) => {
         const element = document.getElementById(anchorId)
@@ -19,15 +19,15 @@ export default function SideMenu({ tags }: { tags: string[] }) {
     }
 
     return (
-        <div className="flex flex-col border-r-2 items-start sticky top-20">
-            {tags.map(tag => (
+        <div className="flex flex-col border-b-2 md:border-b-0 md:border-r-2 mb-4 items-center md:mb-0 md:items-start sticky top-20 bg-background/75">
+            {headings.map(heading => (
                 <Button
-                    key={tag.toLowerCase().replace(/\s+/g, '-')}
+                    key={heading.toLowerCase().replace(/\s+/g, '-')}
                     variant='ghost'
                     className="font-extrabold hover:underline hover:bg-transparent"
-                    onClick={() => scrollToAnchor(tag.toLowerCase().replace(/\s+/g, '-'))}
+                    onClick={() => scrollToAnchor(heading.toLowerCase().replace(/\s+/g, '-'))}
                 >
-                    {tag}
+                    {heading}
                 </Button>
             ))}
         </div>

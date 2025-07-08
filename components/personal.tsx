@@ -1,21 +1,25 @@
-import { getPostBySlug, Post } from "@/lib/posts"
-import MDXContent from "./mdx-content"
+import { getPostBySlug } from "@/lib/posts"
+import { getH2Headings, parseToHtml } from "@/lib/utils"
+
 import SideMenu from "./side-menu"
+import MDContent from "./md-content"
 
 export default async function Personal() {
     const post = await getPostBySlug('biography')
+    const headings = await getH2Headings(post!.content)
 
-    const { metadata, content } = post!
-    const { tags } = metadata
+    const { content } = post!
+
+    const contentHtml = await parseToHtml(content)
 
     return (
-        <div className="flex flex-row gap-x-4 items-start sticky top-20">
+        <div className="flex flex-col md:flex-row sticky">
             {/* Side Menu */}
-            <SideMenu tags={tags!} />
+            <SideMenu headings={headings} />
 
             {/* Info section */}
-            <main className="prose dark:prose-invert max-w-3xl px-4">
-                <MDXContent source={content} />
+            <main className="prose dark:prose-invert max-w-full px-4">
+                <MDContent html={contentHtml} />
             </main>
         </div>
     )
