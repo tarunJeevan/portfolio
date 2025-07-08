@@ -31,15 +31,15 @@ export default async function Project({ params }: { params: { slug: string } }) 
 
     return (
         <section className="pb-24 pt-32">
-            <div className="container flex flex-col md:flex-row items-start justify-center sticky">
+            <div className="container flex flex-col md:flex-row items-start justify-center sticky max-w-6xl">
                 {/* Side menu */}
                 <SideMenu headings={headings} />
 
                 {/* Project section */}
-                <div className="px-4 max-w-full">
+                <div className="px-4 w-full">
                     <Link
                         href='/projects'
-                        className="mb-8 inline-flex items-center gap-2"
+                        className="mb-8 inline-flex items-center gap-2 transition-transform duration-300 transform hover:scale-105"
                     >
                         <ArrowLeftIcon className="h-5 w-5" />
                         <span>Back to projects</span>
@@ -50,9 +50,9 @@ export default async function Project({ params }: { params: { slug: string } }) 
                             {author} / {formatDate(publishedAt ?? '')}
                         </p>
                     </header>
-                    <main className="prose mt-16 dark:prose-invert">
+                    <section className="prose mt-16 dark:prose-invert max-w-full">
                         <MDContent html={contentHtml} />
-                    </main>
+                    </section>
                 </div>
             </div>
         </section>

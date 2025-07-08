@@ -13,14 +13,14 @@ export default async function Personal() {
     const contentHtml = await parseToHtml(content)
 
     return (
-        <div className="flex flex-col md:flex-row sticky">
+        <div className="flex flex-col md:flex-row items-start justify-center ">
             {/* Side Menu */}
             <SideMenu headings={headings} />
 
             {/* Info section */}
-            <main className="prose dark:prose-invert max-w-full px-4">
+            <section className="prose dark:prose-invert max-w-full px-4">
                 <MDContent html={contentHtml} />
-            </main>
+            </section>
         </div>
     )
 }

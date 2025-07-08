@@ -19,7 +19,7 @@ export default function SideMenu({ headings }: { headings: string[] }) {
     }
 
     return (
-        <div className="flex flex-col border-b-2 md:border-b-0 md:border-r-2 mb-4 items-center md:mb-0 md:items-start sticky top-20 bg-background/75">
+        <div className="flex flex-row md:flex-col flex-wrap border-b-2 md:border-b-0 border-r-0 md:border-r-2 mb-4 md:mb-0 md:items-start justify-center sticky top-20 bg-background/75 w-full md:w-fit">
             {headings.map(heading => (
                 <Button
                     key={heading.toLowerCase().replace(/\s+/g, '-')}
