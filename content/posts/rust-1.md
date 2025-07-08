@@ -26,20 +26,20 @@ Here&apos;s what I did this first week of learning Rust (check out [my repo](htt
 ### **Basics**
 I learned the basics of Rust - installation and setup, syntax, data types, control flow, etc. I primarily did this via the officoal *Rust Programming Language* Book but I also supplemented my learning with various YouTube tutorials and explanatory videos. 
 
-### **Projects**
+## **Projects**
 Worked on and (mostly) finished 4 (actually 3) projects to practice and demonstrate my skills and knowledge. These projects are:
 
-#### **Hello World**
+### **Hello World**
 A simple Hello World program to familiarize myself with Cargo and Rust project structure.
 
-#### **Guessing Game**
+### **Guessing Game**
 A CLI guessing game that generates a random number and repeatedly prompts users to guess, informing them whether their guess was too low or too high after each input. I primarily followed the Rust book&apos;s directions at the beginning but added my own features. 
 
 For example, I added a simple difficulty mode that controls how many guesses a user gets, with harder difficulty settings giving users fewer guesses to figure out the random integer. 
 
 This project helped me familiarize myself with control flow in Rust and basic concepts such as immutability and mutability. I also started learning about the `std` crate and pattern matching with the `match` expression. 
 
-#### **Tic Tac Toe**
+### **Tic Tac Toe**
 A CLI Tic-Tac-Toe game that prints the game rules and board in the terminal, allowing users to pick the square to put their mark in via numbers read in from `stdin`. This game unfortunately doesn't support single-player mode but I still learned a lot while making it. 
 
 The README document in my rust-journey repo covers this in detail but some of the concepts I practiced include:
@@ -48,7 +48,7 @@ The README document in my rust-journey repo covers this in detail but some of th
 - Error handling
 - Debugging in VS Code
 
-#### **Tic Tac Toe Advanced**
+### **Tic Tac Toe Advanced**
 In an effort to fix the failings of the previous version, I set out to create a more advanced version of the game to fill in the gaps in the previous version and enhance existing features. 
 
 The end result was a game that makes full use of the terminal to create an enhanced player experience that doesn&apos;t rely on reading in user input. This version also implements a Minimax algorithm for the Player Two AI, creating an unbeatable opponent that can only be tied against. 

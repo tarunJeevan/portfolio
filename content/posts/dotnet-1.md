@@ -73,14 +73,14 @@ During the development of the personal finance web application, I encountered se
 5. ***Debugging***: Debugging issues in the application was sometimes challenging, especially when dealing with complex interactions between models, views, and controllers. I learned to use Visual Studio's debugging tools effectively, such as breakpoints and watch windows, to identify and resolve issues in my code. I also learned to make effective use of error logging and ChatGPT to troubleshoot problems and get explanations for concepts I found difficult to grasp.
 6. ***Dependency Injection***: Understanding and implementing dependency injection in my application was initially confusing. I learned how to register services in the Program.cs class and inject them into controllers, which helped me manage dependencies more effectively and keep my code organized.
 
+## **Conclusion**
+Revisiting .NET development has been a rewarding experience, allowing me to deepen my understanding of the framework and its capabilities. By setting up a solid development environment, exploring the MVC framework, and creating a personal finance web application, I have laid a strong foundation for my future projects in .NET.
+
+I look forward to continuing my journey in .NET and sharing my experiences with the community. Whether you're a seasoned .NET developer or just starting out, I hope this post provides some insights and inspiration for your own projects.
+
 ## **Next Steps**
 As I continue my journey in .NET development and work on my finance app, I plan to explore more advanced topics such as **authentication and authorization**, **role-based access control**, **unit/integration/e2e testing**, and **deploying** .NET applications to the cloud. I also want to learn about **Blazor**, a framework for building component-based web interfaces using C# instead of JavaScript.
 
 I am excited to see where this journey takes me and how I can apply my knowledge of .NET to build robust and scalable applications. I will continue to document my progress and share my experiences in future posts.
 
 I hope this post provides a useful overview of my initial steps into the .NET ecosystem and inspires others to explore .NET development. If you have any questions or suggestions, feel free to reach out or leave a comment below. Happy coding!
-
-## **Conclusion**
-Revisiting .NET development has been a rewarding experience, allowing me to deepen my understanding of the framework and its capabilities. By setting up a solid development environment, exploring the MVC framework, and creating a personal finance web application, I have laid a strong foundation for my future projects in .NET.
-
-I look forward to continuing my journey in .NET and sharing my experiences with the community. Whether you're a seasoned .NET developer or just starting out, I hope this post provides some insights and inspiration for your own projects.

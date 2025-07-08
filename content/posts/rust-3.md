@@ -110,7 +110,7 @@ Overall, this project was a great way to apply my Rust knowledge in a different 
 
 I also learned a lot about structuring larger Rust projects, managing game states, and handling user input. This project helped me solidify my understanding of Rust and its capabilities, and I look forward to exploring more game development projects in the future.
 
-### **Next Steps**
+## **Next Steps**
 I plan to further expand on this project by adding more features such as:
 - **Save/Load Functionality**: Implementing a save and load system that allows players to save their progress and resume later. Based on my research, this can easily be accomplished using a crate like `serde` to serialize the game state to a file and vice-versa.
 - **Power-ups**: Adding power-ups that can be collected to give the snake special abilities or bonuses. I intend to make great use of AI tools like Copilot to help me brainstorm and implement these features.

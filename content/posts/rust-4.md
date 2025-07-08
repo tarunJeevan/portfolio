@@ -27,10 +27,10 @@ Rust doesn&apos;t have traditional object-oriented features such as classes, int
 ## **Final Project**
 To put all these concepts into practice, I built a **multi-threaded HTTP server** from scratch as the final project in the [Rust Programming Language Book](https://doc.rust-lang.org/stable/book/ch21-00-final-project-a-web-server.html). I didn&apos;t stop at the book&apos;s version though — I extended it with new features, modularized the codebase, and experimented with real-world HTTP handling.
 
-### **Conclusion**
+## **Conclusion**
 Building a multi-threaded HTTP server from scratch in Rust was a challenging but incredibly rewarding experience. It brought together everything I&apos;d learned so far about systems programming, concurrency, and protocol design, and gave me a solid foundation for future projects. I&apos;m excited to keep pushing my Rust skills further with my next planned foray into development with Rust - a cross-platform writing and worldbuilding tool built using Tauri 2.0.
 
-### **Next Steps**
+## **Next Steps**
 I plan to further expand on this project by adding more features such as:
 - Add support for persistent connections (keep-alive).
 - Expand the `post()` handler to handle more `Content-Types`.
