@@ -10,7 +10,7 @@ tags: ['Rust', 'Game Dev', 'Piston Framework']
 
 ## **Project Overview**
 The **Rust Snake Game** is a personal project that recreates the classic Snake game using the Rust programming language and the `piston_window` crate, a wrapper for the Piston game framework. It's a part of my ongoing journey to learn Rust and explore its capabilities in game development. The project focuses on implementing event-driven design patterns, core game mechanics, rendering graphics, and handling user input, providing a hands-on experience with Rust's features and performance characteristics.
-- **Development Period**: March 2025 - June 2025
+- **Development Period**: March 2025 - July 2025
 - **GitHub Repository**: [Rust Journey Repo](https://github.com/tarunJeevan/rust-journey)
 
 ## **Project Objectives**
@@ -31,6 +31,51 @@ The game implements a simple scoring system to track how much food the snake has
 
 The score itself is stored in the `Game` struct, meaning that it is maintained or refreshed along with the game session. Pausing and resuming doesn&apos;t affect the score as it doesn&apos;t affect the game. Starting a new game will reset the score as it creates a new instance of the `Game` struct. 
 
+### **Simple Leaderboard**
+The game includes a simple leaderboard that tracks the ten highest scores achieved in the game, logging a 3-letter alphanumeric name associated with the score as well as the date and time it was earned. This leaderboard is accessible from the main menu and allows players to see their best performances, adding a competitive edge to the gameplay.
+
+The leaderboard itself contains a vector of `ScoreEntry` structs and is stored within the `Game` struct. The leaderboard is updated whenever a new high score is achieved, and it is displayed in the main menu when the player chooses to view it. When the player exits the game, the leaderboard is saved to a file so that it can be loaded the next time the game is started. Both the saving and loading of the leaderboard is done using the `serde` and `serde_json` crates, which allow for easy serialization and deserialization of the data.
+
+```rs
+#[derive(Serialize, Deserialize, Clone)]
+pub struct ScoreEntry {
+    pub name: String,
+    pub score: u32,
+    pub date: DateTime<Utc>,
+}
+
+#[derive(Serialize, Deserialize, Default, Clone)]
+pub struct Leaderboard {
+    pub scores: Vec<ScoreEntry>,
+}
+
+impl Leaderboard {
+    /// Loads leaderboard from file
+    ///
+    /// `path` is the filepath to the savefile where scores are stored
+    ///
+    /// Returns an instance of itself containing the deserialized contents of the savefile or a default instance
+    pub fn load(path: &Path) -> Self {
+        if let Ok(contents) = fs::read_to_string(path) {
+            return serde_json::from_str(&contents).unwrap_or(Leaderboard::default());
+        }
+        Leaderboard::default()
+    }
+
+    /// Save current leaderboard to a savefile, overwriting its contents if it already exists
+    ///
+    /// `path` is the path to the savefile
+    ///
+    /// Returns an IO Result containing the Unit type on success and an IO error on failure
+    pub fn save(&self, path: &Path) -> std::io::Result<()> {
+        let json = serde_json::to_string_pretty(&self)?;
+        fs::write(path, json)
+    }
+    ... // Other methods for adding scores, sorting, etc.
+}
+```
+*Leaderboard struct and methods in `leaderboard.rs`*
+
 ### **Sprites and Textures**
 The game uses simple 2D sprites and textures to make gameplay more appealing and aesthetically pleasing. Textures are loaded into the game at runtime and rendered dynamically as needed when the game runs. 
 
@@ -50,9 +95,9 @@ The game includes settings for adjusting gameplay parameters, such as increasing
 ## **Technology Stack**
 - **Programming Language**: Rust
 - **Game Framework**: Piston (using `piston_window` crate for window creation, input handling, and rendering)
-- **Debugging and Development**: VS Code with CodeLLDB
+- **Development and Debugging**: VS Code with CodeLLDB
 - **Randomization**: `rand` for generating random food positions
-- **Serialization (Planned)**: `serde` and `serde_json`
+- **Serialization**: `serde` and `serde_json`
 
 ## **Development Challenges and Solutions**
 ### **Overlay Rendering**
@@ -106,7 +151,9 @@ while let Some(event) = window.next() {
                 game.update(arg.dt);
             });
         }
-        ...
+        ... // Other game states
+    }
+}
 ```
 *Using `match` to manage event loop and game states in `main.rs`*
 
@@ -196,12 +243,14 @@ pub fn key_pressed(&mut self, key: Key) {
             }
             _ => {}
         },
-        ...
+        ... // Other game states
+    }
+}
 ```
 *Input handling code snippet from `game.rs`*
 
 ### **Input Remapping System**
-Implementing a remapping system for controls required a careful redesign of my existing input handling system to ensure that user preferences were respected while maintaining the game's responsiveness. I created a new enum to hold the current key mappings and decoupled the input handling logic from hardcoded key bindings, allowing for dynamic remapping without affecting the core game logic.
+Implementing a remapping system for controls required a careful redesign of my existing input handling system to ensure that user preferences were respected while maintaining the game's responsiveness. I created a new `enum` to hold the current key mappings and decoupled the input handling logic from hardcoded key bindings, allowing for dynamic remapping without affecting the core game logic.
 
 ### **Rendering Textures**
 Rendering textures proved to be a surprising challenge as I struggled to find examples online or in Piston&apos;s documentation. AI tools like Copilot and ChatGPT came through me for me once again, however, and helped me figure out how to load, configure, and render images as textures. 
@@ -238,7 +287,7 @@ pub fn draw_tiled_background(
 
 ## **Future Development Plans**
 The project is mostly finished but I still have several enhancements planned:
-- **Serialization**: Implement serialization using `serde` and `serde_json` to save and load game settings, high scores, and player preferences.
+- **Serialization**: Implement serialization of game settings and player preferences.
 - **Levels**: Create multiple levels with varying difficulty, introducing new challenges, obstacles, and objectives as the player progresses.
 - **Multiplayer Support**: Implement a multiplayer mode where players can compete against each other in real-time, either locally or over a network.
 
