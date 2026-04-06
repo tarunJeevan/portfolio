@@ -16,14 +16,19 @@ export async function generateStaticParams() {
     return slugs
 }
 
-export default async function Project({ params }: { params: { slug: string } }) {
-    const { slug } = params
+export default async function Project({ params }: { params: { slug: string } | Promise<{ slug: string }> }) {
+    const resolvedParams = await params
+    const slug = resolvedParams?.slug
+
+    if (!slug)
+    		notFound()
+
     const project = await getProjectBySlug(slug)
-    const headings = await getH2Headings(project!.content)
 
     if (!project)
         notFound()
 
+    const headings = await getH2Headings(project.content)
     const { metadata, content } = project
     const { title, author, publishedAt } = metadata
 

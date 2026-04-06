@@ -9,7 +9,7 @@ tags: ['Rust', 'Concurrency', 'Web Dev']
 ![Rust HTTP Server Thumbnail](/images/projects/rust-web-server/web-server-thumbnail.png)
 
 ## **Project Overview**
-The **Multi-Threaded HTTP Server** is a personal project designed to deepen my understanding of systems programming, HTTP protocol internals, and Rust's concurrency model. I started it as part of the Final Project in the [Rust Programming Language Book](https://doc.rust-lang.org/stable/book/ch21-00-final-project-a-web-server.html) and then continued to build on it to futher my understanding of server design, HTTP protocols, and concurrency. Built from scratch without external web frameworks, this server demonstrates how to handle HTTP requests, serve static files, manage multiple connections concurrently, and implement robust error handling—all using Rust's type system and module organization.
+The **Multi-Threaded HTTP Server** is a personal project designed to deepen my understanding of systems programming, HTTP protocol internals, and Rust&apos;s concurrency model. I started it as part of the Final Project in the [Rust Programming Language Book](https://doc.rust-lang.org/stable/book/ch21-00-final-project-a-web-server.html) and then continued to build on it to futher my understanding of server design, HTTP protocols, and concurrency. Built from scratch without external web frameworks, this server demonstrates how to handle HTTP requests, serve static files, manage multiple connections concurrently, and implement robust error handling—all using Rust&apos;s type system and module organization.
 
 - **Development Period**: May 2025 - July 2025
 - **GitHub Reponsitory**: [Rust Journey Repo](https://github.com/tarunJeevan/rust-journey)
@@ -65,18 +65,18 @@ A custom `ThreadPool` struct manages a pool of worker threads, allowing the serv
 The server serves files from the `public/` directory. If a requested file is missing, it serves a custom error page (e.g., 404.html).
 
 ### **Handling Multiple HTTP Methods**
-- **GET**: Serves static files. 
-- **POST**: Processes form data and writes results to a file, then redirects or responds. 
-- **PUT**: Creates or overwrites files. 
-- **DELETE**: Deletes files. 
-- **OPTIONS**: Returns allowed methods in the `Allow` header. 
+- **GET**: Serves static files.
+- **POST**: Processes form data and writes results to a file, then redirects or responds.
+- **PUT**: Creates or overwrites files.
+- **DELETE**: Deletes files.
+- **OPTIONS**: Returns allowed methods in the `Allow` header.
 
 ### **Custom Error Handling**
 Custom error pages for 404, 405, and 500 errors are served directly, with appropriate status codes and headers.
 
 ## **Implementation Highlights**
 ### **Request and Response Structs**
-The `Request` and `Response` structs encapsulate all relevant data for HTTP transactions. 
+The `Request` and `Response` structs encapsulate all relevant data for HTTP transactions.
 
 ```rs
 // models/request.rs
