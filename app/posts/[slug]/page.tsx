@@ -9,7 +9,7 @@ import { formatDate, getH2Headings, parseToHtml } from '@/lib/utils'
 import { ArrowLeftIcon } from '@radix-ui/react-icons'
 import SideMenu from '@/components/side-menu'
 
-/* Tells Next.js to statically generate pages for the slugs we have. This boosts performance 
+/* Tells Next.js to statically generate pages for the slugs we have. This boosts performance
 so users don't have to wait for a page to be rendered dynamically */
 export async function generateStaticParams() {
     const posts = await getPosts()
@@ -21,11 +21,11 @@ export async function generateStaticParams() {
 export default async function Post({ params }: { params: { slug: string } }) {
     const { slug } = params
     const post = await getPostBySlug(slug)
-    const headings = await getH2Headings(post!.content)
 
     if (!post)
         notFound()
 
+    const headings = await getH2Headings(post.content)
     const { metadata, content } = post
     const { title, author, publishedAt } = metadata
 
